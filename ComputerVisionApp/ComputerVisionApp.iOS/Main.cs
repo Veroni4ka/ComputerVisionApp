@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace FaceRecognitionApp.iOS
+namespace ComputerVisionApp.iOS
 {
 	public class Application
 	{

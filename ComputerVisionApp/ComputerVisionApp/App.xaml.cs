@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace FaceRecognitionApp
+namespace ComputerVisionApp
 {
 	public partial class App : Application
 	{
@@ -13,7 +13,7 @@ namespace FaceRecognitionApp
 		{
 			InitializeComponent();
 
-			MainPage = new FaceRecognitionApp.MainPage();
+			MainPage = new ComputerVisionApp.MainPage();
 		}
 
 		protected override void OnStart ()

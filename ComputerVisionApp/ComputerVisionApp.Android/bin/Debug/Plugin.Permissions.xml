@@ -9,9 +9,14 @@
             Cross platform Permissions implemenations
             </summary>
         </member>
+        <member name="P:Plugin.Permissions.CrossPermissions.IsSupported">
+            <summary>
+            Gets if the plugin is supported on the current platform.
+            </summary>
+        </member>
         <member name="P:Plugin.Permissions.CrossPermissions.Current">
             <summary>
-            Current settings to use
+            Current plugin implementation to use
             </summary>
         </member>
         <member name="T:Plugin.Permissions.PermissionsImplementation">
@@ -53,6 +58,12 @@
             <param name="requestCode"></param>
             <param name="permissions"></param>
             <param name="grantResults"></param>
+        </member>
+        <member name="M:Plugin.Permissions.PermissionsImplementation.OpenAppSettings">
+            <summary>
+            Opens settings to app page
+            </summary>
+            <returns>true if could open.</returns>
         </member>
     </members>
 </doc>

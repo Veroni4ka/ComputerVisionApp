@@ -9,9 +9,14 @@
             Cross platform Media implemenations
             </summary>
         </member>
+        <member name="P:Plugin.Media.CrossMedia.IsSupported">
+            <summary>
+            Gets if the plugin is supported on the current platform.
+            </summary>
+        </member>
         <member name="P:Plugin.Media.CrossMedia.Current">
             <summary>
-            Current settings to use
+            Current plugin implementation to use
             </summary>
         </member>
         <member name="T:Plugin.Media.MediaFileExtensions">
@@ -81,20 +86,33 @@
             <param name="options">Video Media Options</param>
             <returns>Media file of new video or null if canceled</returns>
         </member>
-        <member name="M:Plugin.Media.MediaImplementation.FixOrientationAndResizeAsync(System.String,Plugin.Media.Abstractions.PhotoSize,System.Int32,System.Int32)">
+        <member name="M:Plugin.Media.MediaImplementation.FixOrientationAndResizeAsync(System.String,Plugin.Media.Abstractions.PickMediaOptions,Android.Media.ExifInterface)">
             <summary>
              Rotate an image if required and saves it back to disk.
             </summary>
             <param name="filePath">The file image path</param>
-            <param name="photoSize">Photo size to go to.</param>
+            <param name="mediaOptions">The options.</param>
+            <param name="exif">original metadata</param>
             <returns>True if rotation or compression occured, else false</returns>
         </member>
-        <member name="M:Plugin.Media.MediaImplementation.ResizeAsync(System.String,Plugin.Media.Abstractions.PhotoSize,System.Int32,System.Int32)">
+        <member name="M:Plugin.Media.MediaImplementation.FixOrientationAndResizeAsync(System.String,Plugin.Media.Abstractions.StoreCameraMediaOptions,Android.Media.ExifInterface)">
+            <summary>
+             Rotate an image if required and saves it back to disk.
+            </summary>
+            <param name="filePath">The file image path</param>
+            <param name="mediaOptions">The options.</param>
+            <param name="exif">original metadata</param>
+            <returns>True if rotation or compression occured, else false</returns>
+        </member>
+        <member name="M:Plugin.Media.MediaImplementation.ResizeAsync(System.String,Plugin.Media.Abstractions.PhotoSize,System.Int32,System.Int32,Android.Media.ExifInterface)">
             <summary>
             Resize Image Async
             </summary>
             <param name="filePath">The file image path</param>
             <param name="photoSize">Photo size to go to.</param>
+            <param name="quality">Image quality (1-100)</param>
+            <param name="customPhotoSize">Custom size in percent</param>
+            <param name="exif">original metadata</param>
             <returns>True if rotation or compression occured, else false</returns>
         </member>
         <member name="T:Plugin.Media.MediaPickerActivity">
@@ -126,6 +144,29 @@
             <param name="requestCode"></param>
             <param name="resultCode"></param>
             <param name="data"></param>
+        </member>
+        <member name="M:Plugin.Media.MediaPickerActivity.GetOutputMediaFile(Android.Content.Context,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Try go get output file
+            </summary>
+            <param name="context"></param>
+            <param name="subdir"></param>
+            <param name="name"></param>
+            <param name="isPhoto"></param>
+            <param name="saveToAlbum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Plugin.Media.MediaPickerActivity.OnScanCompleted(System.String,Android.Net.Uri)">
+            <summary>
+            Scan completed
+            </summary>
+            <param name="path"></param>
+            <param name="uri"></param>
+        </member>
+        <member name="M:Plugin.Media.MediaPickerActivity.OnDestroy">
+            <summary>
+            On Destroy
+            </summary>
         </member>
     </members>
 </doc>
