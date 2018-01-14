@@ -99,7 +99,7 @@
             Media file representations
             </summary>
         </member>
-        <member name="M:Plugin.Media.Abstractions.MediaFile.#ctor(System.String,System.Func{System.IO.Stream},System.String)">
+        <member name="M:Plugin.Media.Abstractions.MediaFile.#ctor(System.String,System.Func{System.IO.Stream},System.Func{System.IO.Stream},System.String)">
             <summary>
             Constructor
             </summary>
@@ -120,6 +120,12 @@
         <member name="M:Plugin.Media.Abstractions.MediaFile.GetStream">
             <summary>
             Get stream if available
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Plugin.Media.Abstractions.MediaFile.GetStreamWithImageRotatedForExternalStorage">
+            <summary>
+            Get stream with image orientation rotated if available. If not, then just GetStream()
             </summary>
             <returns></returns>
         </member>
@@ -155,6 +161,28 @@
             <summary>
             Path
             </summary>
+        </member>
+        <member name="T:Plugin.Media.Abstractions.MediaPermissionException">
+            <summary>
+            Permission exception.
+            </summary>
+        </member>
+        <member name="P:Plugin.Media.Abstractions.MediaPermissionException.Permissions">
+            <summary>
+            Permission required that is missing
+            </summary>
+        </member>
+        <member name="M:Plugin.Media.Abstractions.MediaPermissionException.#ctor(Plugin.Permissions.Abstractions.Permission[])">
+            <summary>
+            Creates a media permission exception
+            </summary>
+            <param name="permissions"></param>
+        </member>
+        <member name="P:Plugin.Media.Abstractions.MediaPermissionException.Message">
+            <summary>
+            Gets a message that describes current exception
+            </summary>
+            <value>The message.</value>
         </member>
         <member name="T:Plugin.Media.Abstractions.StoreMediaOptions">
             <summary>
@@ -230,6 +258,11 @@
             Set to true by default.
             </summary>
         </member>
+        <member name="P:Plugin.Media.Abstractions.PickMediaOptions.SaveMetaData">
+            <summary>
+            Saves metadate/exif data from the original file.
+            </summary>
+        </member>
         <member name="T:Plugin.Media.Abstractions.StoreCameraMediaOptions">
             <summary>
             
@@ -292,6 +325,11 @@
             <summary>
             Should the library rotate image according to received exif orientation.
             Set to true by default.
+            </summary>
+        </member>
+        <member name="P:Plugin.Media.Abstractions.StoreCameraMediaOptions.SaveMetaData">
+            <summary>
+            Saves metadate/exif data from the original file.
             </summary>
         </member>
         <member name="T:Plugin.Media.Abstractions.PhotoSize">

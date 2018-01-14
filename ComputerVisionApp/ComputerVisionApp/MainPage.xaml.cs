@@ -74,7 +74,7 @@ namespace ComputerVisionApp
         
         async void Filter()
         {
-            string directory = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, Android.OS.Environment.DirectoryDownloads);
+            string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);    // Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, Android.OS.Environment.DirectoryDownloads);
             string[] fileEntries = Directory.GetFiles(directory);
             foreach (string fileName in fileEntries)
             {
@@ -89,20 +89,26 @@ namespace ComputerVisionApp
         }
         public async Task<AnalysisResult> GetImageDescription(Stream imageStream)
         {
-            VisionServiceClient visionClient = new VisionServiceClient("bb028c5f29be4ac98bb8c4d33861f78b");
+            VisionServiceClient visionClient = new VisionServiceClient("", "https://eastus.api.cognitive.microsoft.com/vision/v1.0");
             VisualFeature[] features = { VisualFeature.Tags, VisualFeature.Categories, VisualFeature.Description };
             return await visionClient.AnalyzeImageAsync(imageStream, features.ToList(), null);
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
+            SelectedImage.Source = null;
+            InfoLabel.Text = "";
             SelectPicture(false);
         }
         private void CamButton_Clicked(object sender, EventArgs e)
         {
+            SelectedImage.Source = null;
+            InfoLabel.Text = "";
             SelectPicture(true);
         }
         private void FilterButton_Clicked(object sender, EventArgs e)
         {
+            SelectedImage.Source = null;
+            InfoLabel.Text = "";
             Filter();
         }
     }

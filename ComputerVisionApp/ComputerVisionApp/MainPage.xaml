@@ -3,17 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ComputerVisionApp"
              x:Class="ComputerVisionApp.MainPage">
-    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Computer Vision Application!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-        <Button Text="Take picture" VerticalOptions="Center" HorizontalOptions="Center" Clicked="CamButton_Clicked" />
-        <Button Text="Choose picture" VerticalOptions="Center" HorizontalOptions="Center" Clicked="Button_Clicked" /> <!---->
-        <Button Text="Filter pictures" VerticalOptions="Center" HorizontalOptions="Center" Clicked="FilterButton_Clicked" />
-        <Image x:Name="SelectedImage" Aspect="AspectFit" WidthRequest="200" HeightRequest="200" />
-        <Label x:Name="InfoLabel" HorizontalOptions="Center" Text=""/>
-    </StackLayout>
-    
+    <ScrollView>
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="Computer Vision Application!" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+            <Button Text="Take picture" VerticalOptions="Center" HorizontalOptions="Center" Clicked="CamButton_Clicked" />
+            <Button Text="Choose picture" VerticalOptions="Center" HorizontalOptions="Center" Clicked="Button_Clicked" />
+            <!---->
+            <Button Text="Filter pictures" VerticalOptions="Center" HorizontalOptions="Center" Clicked="FilterButton_Clicked" />
+            <Image x:Name="SelectedImage" Aspect="AspectFit" WidthRequest="150" HeightRequest="150" />
+            <Label x:Name="InfoLabel" HorizontalOptions="Center" Text=""/>
+        </StackLayout>
+    </ScrollView>
     
     
 
